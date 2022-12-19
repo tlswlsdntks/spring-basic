@@ -4,14 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <!--
+        appConfig.xml 상에 지정하신 bean의 class에 지정하신 클래스가
+        일반 클래스가 아닌 interface이시기 때문에 발생하신 문제입니다
+        class 상에는 interface가 아닌 구현 클래스를 지정하셔야 합니다
+    -->
+
     <bean id="memberRepository" class="hello.core.member.MemoryMemberRepository">
     </bean>
 
     <bean id="memberService" class="hello.core.member.MemberServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
     </bean>
-
-
 
     <bean id="orderService" class="hello.core.order.OrderServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>

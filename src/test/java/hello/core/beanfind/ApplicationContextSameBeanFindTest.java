@@ -17,7 +17,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ApplicationContextSameBeanFindTest {
+public class ApplicationContextSameBeanFindTest { // extends Object
 
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);
 

@@ -13,6 +13,9 @@ import hello.core.order.OrderServiceImpl;
 // 공연 기획자
 public class AppConfig {
 
+    // 리펙터링 : 구성정보에서 역할과 구현을 명확하게 분리
+    // 역할이 잘 들어남
+
     // new MemberRepository : 중복제거
 
     private MemberRepository memberRepository() {

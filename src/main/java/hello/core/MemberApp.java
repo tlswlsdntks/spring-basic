@@ -26,6 +26,9 @@ public class MemberApp {
 
             ApplicationContext : 스프링 컨테이너
 
+            ApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+
             스프링 컨테이너는
             @Configuration 이 붙은 AppConfig.class 를 설정 정보로 사용한다
 

@@ -9,8 +9,14 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 // 공연 기획자
+
+
+// Spring
+@Configuration
 public class AppConfig {
 
     // 리펙터링 : 구성정보에서 역할과 구현을 명확하게 분리
@@ -18,18 +24,24 @@ public class AppConfig {
 
     // new MemberRepository : 중복제거
 
-    private MemberRepository memberRepository() {
+
+    // Spring
+    @Bean
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
 //        return new FixDiscountPolicy(); // 정액
         return new RateDiscountPolicy(); // 정률

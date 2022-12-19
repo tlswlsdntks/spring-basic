@@ -24,7 +24,6 @@ public class OrderServiceTest {
         orderService = appConfig.orderService();
     }
 
-
     @Test
     void createOrder() {
 

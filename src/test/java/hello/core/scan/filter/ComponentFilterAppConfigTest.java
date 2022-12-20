@@ -19,11 +19,11 @@ public class ComponentFilterAppConfigTest {
     void filterScan() {
 
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ComponentFilterAppConfig.class);
-        BeanA beanA = ac.getBean("beanA", BeanA.class);
+        BeanA beanA = ac.getBean("beanA", BeanA.class); // 등록
         assertThat(beanA).isNotNull();
 
         assertThrows(NoSuchBeanDefinitionException.class,
-                () -> ac.getBean("beanB", BeanB.class));
+                () -> ac.getBean("beanB", BeanB.class)); // 등록X
 
     }
 
@@ -31,6 +31,7 @@ public class ComponentFilterAppConfigTest {
     @Configuration
     @ComponentScan(
             includeFilters = @Filter(classes = MyIncludeComponent.class),
+
             excludeFilters = @Filter(classes = MyExcludeComponent.class)
 
             /*

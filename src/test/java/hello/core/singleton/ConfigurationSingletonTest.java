@@ -34,6 +34,28 @@ public class ConfigurationSingletonTest {
         assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
 
+    }
+
+    @Test
+    void configurationDeep() {
+
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+        System.out.println("bean = " + bean.getClass());
+
+        // bean = class hello.core.AppConfig$$EnhancerBySpringCGLIB$$61161f91
+        // 겉모습: AppConfig
+        // 내면: AppConfig@CGLIB
+
+
+
+        // AppConfig.class에 @Configuration를 사용하지않으면
+        // bean = class hello.core.AppConfig
+        // 싱글톤 깨짐
+
+        // 설정정보에는 항상 @Configuration 사용
 
     }
+
+
 }

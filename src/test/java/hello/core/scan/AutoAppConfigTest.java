@@ -18,6 +18,18 @@ public class AutoAppConfigTest {
         MemberService memberService = ac.getBean(MemberService.class);
         assertThat(memberService).isInstanceOf(MemberService.class);
 
+
+        /*
+            [중복등록과 충돌]
+            package hello.core.member;
+            @Componenet("service")
+
+            package hello.core.order;
+            @Componenet("service")
+
+            "BeanDefinitionStoreException"
+         */
+
     }
 
 }

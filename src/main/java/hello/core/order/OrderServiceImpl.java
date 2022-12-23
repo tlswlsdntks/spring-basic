@@ -6,10 +6,12 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -18,6 +20,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     // null -> 의존관계 주입 필요
+
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
@@ -27,14 +30,16 @@ public class OrderServiceImpl implements OrderService {
     //  1번만 호출!
     // "불변, 필수" 의존관계에 사용
     // 생성자가 한개만 있을 땐, @Autowired 생략이 가능하다
-    @Autowired // 생략 가능
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        System.out.println("memberRepository = " + memberRepository);
-//        System.out.println("discountPolicy = " + discountPolicy);
-//        System.out.println("1. memberRepository = " + memberRepository);
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired // 생략 가능
+//    @RequiredArgsConstructor
+//    Ctrl + F12로 메소드 존재 확인 가능
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+////        System.out.println("memberRepository = " + memberRepository);
+////        System.out.println("discountPolicy = " + discountPolicy);
+////        System.out.println("1. memberRepository = " + memberRepository);
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
 
 

@@ -43,8 +43,6 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
 
-    @Bean
-    //    @Bean(name = "memoryMemberRepository")
     /*
         [수동빈 등록이 우선권을 가진다]
         Overriding bean definition for bean 'memoryMemberRepository' with a different definition: replacing [Generic bean: class [hello.core.member.MemoryMemberRepository];
@@ -72,7 +70,11 @@ public class AutoAppConfig {
         가능하게끔 실행된다
         ********************************************************
      */
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+
+//    @Bean
+//    //    @Bean(name = "memoryMemberRepository")
+//    public MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
+
 }

@@ -18,8 +18,8 @@ public class OrderServiceImpl implements OrderService {
 
 
     // null -> 의존관계 주입 필요
-//    private final MemberRepository memberRepository;
-//    private final DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
 
 
@@ -28,33 +28,33 @@ public class OrderServiceImpl implements OrderService {
     // "불변, 필수" 의존관계에 사용
     // 생성자가 한개만 있을 땐, @Autowired 생략이 가능하다
     //    @Autowired : 생략 가능
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-////        System.out.println("memberRepository = " + memberRepository);
-////        System.out.println("discountPolicy = " + discountPolicy);
-////        System.out.println("1. memberRepository = " + memberRepository);
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        System.out.println("memberRepository = " + memberRepository);
+//        System.out.println("discountPolicy = " + discountPolicy);
+//        System.out.println("1. memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 
 
     // 2) 수정자 주입
     // 순서: 생성자 -> 수정자
     // "선택, 변경" 가능성이 있는 의존관계에 사용
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
-
-    @Autowired
-    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-        System.out.println("2. discountPolicy = " + discountPolicy);
-        this.discountPolicy = discountPolicy;
-    }
-
-    @Autowired
-    public void setMemberRepository(MemberRepository memberRepository) {
-        System.out.println("3. memberRepository = " + memberRepository);
-        this.memberRepository = memberRepository;
-    }
+//    private MemberRepository memberRepository;
+//    private DiscountPolicy discountPolicy;
+//
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        System.out.println("2. discountPolicy = " + discountPolicy);
+//        this.discountPolicy = discountPolicy;
+//    }
+//
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        System.out.println("3. memberRepository = " + memberRepository);
+//        this.memberRepository = memberRepository;
+//    }
 
 
 

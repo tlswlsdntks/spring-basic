@@ -25,7 +25,20 @@ public class BeanLifeCycleTest {
     @Configuration
     static class LifeCycleConfig {
 
-        @Bean
+//        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")
+        /*
+            [종료 메소드 추론]
+            default: destroyMethod = "(inferred)";
+            라이브러리는 대부분 "close", "shutdown" 이라는 이름의 메소드를 사용
+            "(inferred)" -> 추론
+            종료메소드를 추론해서 호출해준다
+            종료메소드를 따로 적어주지 않아도 잘 동작한다!
+
+            추론 기능 사용하지 않겠다면
+            destroyMethod = "";
+
+         */
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             System.out.println("@Bean Start");

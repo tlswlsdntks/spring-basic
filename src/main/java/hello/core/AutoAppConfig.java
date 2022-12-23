@@ -10,7 +10,6 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-
         // 탐색 위치
 //        basePackages = "hello.core.member",
 //        basePackages = {"hello.core.member", "hello.core.order"},
@@ -38,9 +37,8 @@ import org.springframework.context.annotation.FilterType;
                 @Configuration: 스프링 설정정보로 인식, 싱글톤 유지 처리
                 @Service: 로직 처리
          */
-
-
 )
+
 public class AutoAppConfig {
 
     /*

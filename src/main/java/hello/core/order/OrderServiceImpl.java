@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     //  1번만 호출!
     // "불변, 필수" 의존관계에 사용
     // 생성자가 한개만 있을 땐, @Autowired 생략이 가능하다
-    //    @Autowired : 생략 가능
+    @Autowired // 생략 가능
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 //        System.out.println("memberRepository = " + memberRepository);
 //        System.out.println("discountPolicy = " + discountPolicy);

@@ -25,8 +25,7 @@ public class BeanLifeCycleTest {
     @Configuration
     static class LifeCycleConfig {
 
-//        @Bean
-        @Bean(initMethod = "init", destroyMethod = "close")
+//        @Bean(initMethod = "init", destroyMethod = "close")
         /*
             [종료 메소드 추론]
             default: destroyMethod = "(inferred)";
@@ -37,8 +36,9 @@ public class BeanLifeCycleTest {
 
             추론 기능 사용하지 않겠다면
             destroyMethod = "";
-
          */
+
+        @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             System.out.println("@Bean Start");

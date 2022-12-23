@@ -2,6 +2,10 @@ package hello.core.lifecycle;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.ComponentScan;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 //public class NetworkClient implements InitializingBean, DisposableBean {
 public class NetworkClient {
@@ -73,23 +77,55 @@ public class NetworkClient {
      */
 
 
-    public void init() throws Exception {
-        System.out.println("NetworkClient.afterPropertiesSet");
-        connect();
-        call("초기화 연결 메세지");
-    }
 
-    public void close() throws Exception {
-        System.out.println("NetworkClient.destroy");
-        disconnect();
-    }
+//    public void init() throws Exception {
+//        System.out.println("NetworkClient.afterPropertiesSet");
+//        connect();
+//        call("초기화 연결 메세지");
+//    }
+//
+//    public void close() throws Exception {
+//        System.out.println("NetworkClient.destroy");
+//        disconnect();
+//    }
 
     /*
         [설정 정보 사용 특징]
         1) 스프링에 의존하지않는다
         2) 설정 정보를 사용하기 때문에 코드를 고칠 수 없는
         3) 외부 라이브러리에도 초기화, 종료 메소드를 적용할 수 있다
+     */
+
+
+    @PostConstruct
+    public void init() throws Exception {
+        System.out.println("NetworkClient.afterPropertiesSet");
+        connect();
+        call("초기화 연결 메세지");
+    }
+
+    @PreDestroy
+    public void close() throws Exception {
+        System.out.println("NetworkClient.destroy");
+        disconnect();
+    }
+
+    /*
+        [@PostConstruct, @PreDestroy]
+        @PostConstruct: 생성된 이후에
+        @PreDestroy: 소멸되기 전에
+
+        import javax.annotation.PostConstruct;
+        import javax.annotation.PreDestroy;
+        JSR-250이라는 자바표준, 스프링이 아닌 다른 컨테이너에서도 동작한다
+        @ComponentScan 과 어울린다 -> @Bean 등록이 아니기 때문에
+
+        유일한 단점
+        -> 외부 라이브러리에는 적용하지 못한다
+        -> 외부 라이브러리를 초기화, 종료해야하면
+        @Bean(initMethod = "init", destroyMethod = "close")기능을 사용하자
 
      */
+
 
 }

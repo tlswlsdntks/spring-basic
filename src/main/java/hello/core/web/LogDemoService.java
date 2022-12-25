@@ -20,11 +20,17 @@ public class LogDemoService {
         스프링 시작 시점에는 에러가 생긴다!
      */
 
+    /*
+        [프록시]
+        @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+     */
+    private final MyLogger myLogger;
+
     private final ObjectProvider<MyLogger> myLoggerProvider;
 
     public void login(String id) {
 
-        MyLogger myLogger = myLoggerProvider.getObject();
+//        MyLogger myLogger = myLoggerProvider.getObject();
         myLogger.log("service id = " + id);
     }
 }

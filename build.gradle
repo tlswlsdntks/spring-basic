@@ -41,10 +41,10 @@ dependencies {
     // web 라이브러리 추가 시작
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // 웹 라이브러리가 추가되면 웹과 관련된 추가설정과 환경들이 필요하므로
-    // AnnotationConfigApplicationContext
-    // -> AnnotationConfigServletWebServerApplicationContext 을 기반으로 구동된다
-    // 사용중인 포트 변경: application.properties에 saver.port=9090 추가
+        // 웹 라이브러리가 추가되면 웹과 관련된 추가설정과 환경들이 필요하므로
+        // AnnotationConfigApplicationContext
+        // -> AnnotationConfigServletWebServerApplicationContext 을 기반으로 구동된다
+        // 사용중인 포트 변경: application.properties에 saver.port=9090 추가
 
     // web 라이브러리 추가 끝
 

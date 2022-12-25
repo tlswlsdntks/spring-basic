@@ -18,7 +18,6 @@ public class LogDemoController {
     private final LogDemoService logDemoService;
 //    private final MyLogger myLogger;
 
-
     /*
         Error creating bean with name 'myLogger':
         Scope 'request' is not active for the current thread;
@@ -33,9 +32,7 @@ public class LogDemoController {
 //        this.logDemoService = logDemoService;
 //    }
 
-
     private final ObjectProvider<MyLogger> myLoggerProvider;
-
 
     @RequestMapping("log-demo")
     @ResponseBody
@@ -55,6 +52,5 @@ public class LogDemoController {
         logDemoService.login("testId");
         return "OK";
     }
-
 
 }
